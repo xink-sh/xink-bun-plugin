@@ -1,11 +1,11 @@
 {
   "name": "xink-bun-plugin",
-  "module": "index.ts",
-  "type": "module",
+  "version": "0.1.0-next.0",
+  "license": "MIT",
+  "module": "index.js",
   "devDependencies": {
     "@types/bun": "latest"
   },
-  "peerDependencies": {
-    "typescript": "^5.0.0"
-  }
+  "type": "module",
+  "types": "types.d.ts"
 }
