@@ -1,11 +1,18 @@
 {
-  "name": "xink-bun-plugin",
+  "name": "@xink-sh/xink-bun-plugin",
   "version": "0.1.0-next.0",
-  "license": "MIT",
   "module": "index.js",
   "devDependencies": {
-    "@types/bun": "latest"
+    "@types/bun": "latest",
+    "typescript": "^5.5.4"
   },
+  "exports": {
+    ".": {
+      "import": "./lib/exports/index.js",
+      "types": "./types.d.ts"
+    }
+  },
+  "license": "MIT",
   "type": "module",
   "types": "types.d.ts"
 }
