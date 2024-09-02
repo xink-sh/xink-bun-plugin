@@ -1,6 +1,7 @@
 export type DefaultConfig = {
   params: string;
   routes: string;
+  outdir: string;
 }
 export type Handler = (event: RequestEvent) => MaybePromise<Response> | null
 export type Handlers = {
@@ -32,5 +33,9 @@ export type ParametricNode = {
 }
 export type Params = { [key: string]: string }
 export type Route = { store: Store; params: Params; } | null;
-export type Store = { [key: string]: Handler }
+export type Store = { 
+  file: string;
+  src: string;
+  methods: Set<string>;
+ }
 export type StoreFactory = () => Store

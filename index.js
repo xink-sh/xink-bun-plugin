@@ -1,10 +1,10 @@
 /** @import { XinkConfig } from './types.js' */
 /** @import { BunPlugin } from 'bun' */
-import { CONFIG } from './lib/constants.js'
+import { validateConfig } from './lib/utils/generic.js'
 import { initRouter } from './lib/utils/router.js'
 
 /** @type {XinkConfig} */
-let config
+let config = {}
 
 /**
  * @type {BunPlugin}
@@ -13,12 +13,17 @@ const xink_plugin = {
   name: 'xink-bun-plugin',
   async setup (build) {
     const mode = Bun.env['npm_lifecycle_event']
-    console.log('mode:', mode)
-    console.log('config:', config)
 
-    await initRouter(config)
+    if (mode === 'dev') {
+      await initRouter(config, true)
+    } else if (mode === 'build') {
+      build.config = {
+        ...build.config,
+        outdir: config.outdir
+      }
 
-    console.log('end setup')
+      await initRouter(config, false, config.outdir)
+    }
   }
 }
 
@@ -26,11 +31,8 @@ const xink_plugin = {
  * @param {XinkConfig} [xink_config]
  * @returns {BunPlugin}
  */
-export function xink(xink_config = CONFIG) {
-  console.log('init xink plugin')
-
-  // TODO - validate and merge with default config
-  config = xink_config
+export function xink(xink_config = {}) {
+  config = validateConfig(xink_config)
 
   return xink_plugin
 }

@@ -14,5 +14,8 @@
   },
   "license": "MIT",
   "type": "module",
-  "types": "types.d.ts"
+  "types": "types.d.ts",
+  "dependencies": {
+    "bun": "^1.1.26"
+  }
 }
