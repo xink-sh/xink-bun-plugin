@@ -12,17 +12,14 @@ let config = {}
 const xink_plugin = {
   name: 'xink-bun-plugin',
   async setup (build) {
-    const mode = Bun.env['npm_lifecycle_event']
+    console.log('config', config)
 
-    if (mode === 'dev') {
+    if (build.config) {
+      console.log('build', build)
+      await initRouter(config, false, build.config.outdir)
+    } else {
+      console.log('deving...')
       await initRouter(config, true)
-    } else if (mode === 'build') {
-      build.config = {
-        ...build.config,
-        outdir: config.outdir
-      }
-
-      await initRouter(config, false, config.outdir)
     }
   }
 }
