@@ -26,6 +26,5 @@ export function text(data: string, init?: ResponseInit | undefined): Response
 export function sequence(...handlers: Handle[]): Handle
 export class Xink {
   constructor() {}
-  async init(): void
   async fetch(request: Request): Promise<Response>
 }
