@@ -1,20 +1,19 @@
 export type DefaultConfig = {
   params: string;
   routes: string;
-  outdir: string;
 }
 export type Handler = (event: RequestEvent) => MaybePromise<Response> | null
 export type Handlers = {
-  [key: string]: Handler
+  [key: string]: Handler;
 }
 export type MaybePromise<T> = T | Promise<T>
-export type Params = { [key: string]: string }
+export type Params = { [key: string]: string; }
 export type ValidatedConfig = {
   params: string;
   routes: string;
 }
 
-/* Medley */
+/* Router */
 export type Matcher = ((param: string) => boolean) | null;
 export type MatcherType = string | null;
 export type Node = {
@@ -31,11 +30,9 @@ export type ParametricNode = {
   store: Store | null;
   static_child: Node | null;
 }
-export type Params = { [key: string]: string }
+export type Params = { [key: string]: string; }
 export type Route = { store: Store; params: Params; } | null;
 export type Store = { 
-  file: string;
-  src: string;
-  methods: Set<string>;
+  [key: string]: Handler;
  }
 export type StoreFactory = () => Store

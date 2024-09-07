@@ -1,6 +1,6 @@
 import type { BunPlugin } from "bun"
 import type { Plugin } from "vite"
-import type { Router } from "./lib/utils/medley.js"
+import type { Router } from "./lib/router.js"
 import type { Route } from "./lib/types/internal.js"
 
 export type Handle = (event: RequestEvent, resolve: ResolveEvent) => MaybePromise<Response>
@@ -17,7 +17,6 @@ export type ResolveEvent = (event: RequestEvent) => MaybePromise<Response>
 export type XinkConfig = {
   params?: string;
   routes?: string;
-  outdir?: string;
 }
 
 export async function xink(xink_config?: XinkConfig): BunPlugin
@@ -30,4 +29,3 @@ export class Xink {
   async init(): void
   async fetch(request: Request): Promise<Response>
 }
-export const router: Router

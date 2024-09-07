@@ -1,7 +1,7 @@
 /** @import { XinkConfig } from './types.js' */
 /** @import { BunPlugin } from 'bun' */
-import { validateConfig } from './lib/utils/generic.js'
-import { buildManifest } from './lib/utils/router.js'
+import { validateConfig } from './lib/utils/config.js'
+import { createManifest } from './lib/shared/manifest.js'
 
 /** @type {XinkConfig} */
 let config = {}
@@ -18,10 +18,10 @@ const xink_plugin = {
 
     if (mode === 'build' && build.config) {
       console.log('build', build)
-      await buildManifest(config, false, build.config.outdir)
+      await createManifest(config, false, build.config.outdir)
     } else if (mode === 'dev') {
       console.log('deving...')
-      await buildManifest(config, true)
+      await createManifest(config, true)
     }
   }
 }
