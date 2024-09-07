@@ -10,7 +10,6 @@ export type RequestEvent = {
   locals: { [key: string]: string },
   params: Params;
   request: Request;
-  route: Route;
   url: Omit<URL, 'createObjectURL' | 'revokeObjectURL' | 'canParse'>;
 }
 export type ResolveEvent = (event: RequestEvent) => MaybePromise<Response>
