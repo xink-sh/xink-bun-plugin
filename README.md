@@ -11,14 +11,15 @@ The hope of a plugin is that it will enable developers to run Xink in edge runti
 
 ## Route Types
 
-Largely based on [Medley Router](https://github.com/medleyjs/router), Xink router supports the following:
+Largely based on code from the [Medley](https://github.com/medleyjs/router) URL router, Xink supports the following route types:
 
+- from Medley
   - static: /hello/there/world
   - dynamic: /hello/[name]
   - specific: /hello/miss-[name]
-  
   - trailing rest: /hello/[...rest]
-  - matcher: /hello/[name=string] (where 'string' references a function which tests if [name] matches)
+- Added by Xink:
+  - matcher: /hello/[name=string] (where 'string' references a function, which tests if the value of the `name` parameter matches)
 
 > The [[optional]] route feature is planned. We may consider allowing [...rest] to be in the middle of a route.
 
