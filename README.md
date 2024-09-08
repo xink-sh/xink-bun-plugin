@@ -179,13 +179,16 @@ xink({
 
 ## Types
 
+> `RequestEvent.route` is largely used internally, and not currently useful to developers.
+
 ```ts
+type Params = { [key: string]: string };
 type Route = { store: Store; params: Params; } | null;
 
 type RequestEvent = {
   headers: Omit<Headers, 'toJSON' | 'count' | 'getAll'>;
   locals: { [key: string]: string },
-  params: { [key: string]: string };
+  params: Params;
   request: Request;
   route: Route;
   url: Omit<URL, 'createObjectURL' | 'revokeObjectURL' | 'canParse'>;
