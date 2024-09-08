@@ -161,15 +161,17 @@ export const GET = () => {
 
 ## Plugin Configuration
 
-Right now, there are only two configurable items. Because of the current Bun plugin system, and needing to use the plugin during development and buildtime, this configuration is needed in both `bunfig.toml` and `bun.build.ts`.
+Because of the current Bun plugin system, and needing to use the plugin during development and buildtime, this configuration is needed in both `bunfig.toml` and `bun.build.ts`.
 
 ```ts
 type XinkConfig = {
+  middleware?: string; //path where your middleware is defined.
   params?: string; // path where param matchers are defined.
   routes?: string; // path where routes are defined.
 }
 
 xink({
+  middleware: 'src',
   params: 'src/params',
   routes: 'src/routes'
 }: XinkConfig)
@@ -178,11 +180,14 @@ xink({
 ## Types
 
 ```ts
+type Route = { store: Store; params: Params; } | null;
+
 type RequestEvent = {
   headers: Omit<Headers, 'toJSON' | 'count' | 'getAll'>;
   locals: { [key: string]: string },
-  params: Params;
+  params: { [key: string]: string };
   request: Request;
+  route: Route;
   url: Omit<URL, 'createObjectURL' | 'revokeObjectURL' | 'canParse'>;
 }
 ```
