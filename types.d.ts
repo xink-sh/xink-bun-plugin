@@ -19,7 +19,7 @@ export type XinkConfig = {
   routes?: string;
 }
 
-export async function xink(xink_config?: XinkConfig): BunPlugin
+export function xink(xink_config?: XinkConfig): BunPlugin
 export function html(data: any, init?: ResponseInit | undefined): Response
 export function json(data: any, init?: ResponseInit | undefined): Response
 export function text(data: string, init?: ResponseInit | undefined): Response
