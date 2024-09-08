@@ -1,7 +1,6 @@
 import type { BunPlugin } from "bun"
-import type { Plugin } from "vite"
 import type { Router } from "./lib/router.js"
-import type { Route } from "./lib/types/internal.js"
+import type { Params, Route } from "./lib/types/internal.js"
 
 export type Handle = (event: RequestEvent, resolve: ResolveEvent) => MaybePromise<Response>
 export type MaybePromise<T> = T | Promise<T>
