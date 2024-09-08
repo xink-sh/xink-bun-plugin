@@ -15,6 +15,7 @@ export type RequestEvent = {
 }
 export type ResolveEvent = (event: RequestEvent) => MaybePromise<Response>
 export type XinkConfig = {
+  middleware?: string;
   params?: string;
   routes?: string;
 }
