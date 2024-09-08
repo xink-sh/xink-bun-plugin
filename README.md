@@ -46,7 +46,7 @@ There will eventually be a one-liner that helps do the below three steps for you
 
     await plugin(xink())
     ```
-3. A bunfig.toml file. This is needed for running the server during `bun run dev`.
+3. A bunfig.toml file. This is needed for using the plugin during `bun run dev`.
     ```toml
     preload = ["./bun.plugin.ts"]
     ```
