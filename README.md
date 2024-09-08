@@ -7,8 +7,7 @@ The hope of a plugin is that it will enable developers to run Xink in edge runti
 ## Current Limitations
 
 - only tested with Ubuntu on Windows WSL
-- only supports typescript files
-- there is no published package, so you'd need to clone this repo and use `bun link` to add it to your test api
+- there is no published package yet, so you'd need to clone this repo and use `bun link` to add it to your test api
 
 ## Route Types
 
