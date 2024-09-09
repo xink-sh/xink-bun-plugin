@@ -67,7 +67,7 @@ At the end of a route segment, a `route.ts` file should export one or more funct
 Xink supports these verbs and function names: 'GET', 'POST', 'PUT', 'PATCH', 'DELETE', 'HEAD', 'OPTIONS', 'fallback'
 
 ```ts
-/* src/routes/article/[slug]/endpoint.ts */
+/* src/routes/article/[slug]/route.ts */
 import { json, text, type RequestEvent } from '@xink-sh/xink-bun-plugin'
 
 export const GET = async ({ params }: RequestEvent) => {
