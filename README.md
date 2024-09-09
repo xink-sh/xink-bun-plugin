@@ -135,7 +135,7 @@ Returns an html response. It sends a `Content-Length` header and a `Content-Type
 import { html } from "@xink-sh/xink-bun-plugin"
 
 export const GET = (event) => { 
-  return html(`<div>You chose ${event.params.fruit}</div>`)
+  return html(`<div>You chose ${event.params.fruits}</div>`)
 }
 ```
 
