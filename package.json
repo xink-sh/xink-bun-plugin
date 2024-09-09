@@ -4,6 +4,7 @@
   "module": "index.js",
   "devDependencies": {
     "@types/bun": "latest",
+    "@types/cookie": "^0.6.0",
     "typescript": "^5.5.4"
   },
   "exports": {
@@ -16,6 +17,7 @@
   "type": "module",
   "types": "types.d.ts",
   "dependencies": {
-    "bun": "^1.1.26"
+    "bun": "^1.1.26",
+    "cookie": "^0.6.0"
   }
 }
