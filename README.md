@@ -161,7 +161,9 @@ export const GET = () => {
 
 ## Plugin Configuration
 
-Because of the current Bun plugin system, and needing to use the plugin during development and buildtime, this configuration is needed in both `bunfig.toml` and `bun.build.ts`.
+Customize the configuration. Defaults are shown below.
+
+Because of the current Bun plugin system, and needing to use the plugin during development and buildtime, a custom configuration is needed in both `bunfig.toml` and `bun.build.ts`.
 
 ```ts
 type XinkConfig = {
