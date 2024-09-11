@@ -85,6 +85,21 @@ export const fallback = ({ req }: RequestEvent) => {
 }
 ```
 
+## Cookie Handling
+
+Xink provides `event.cookies` inside of your route handlers, with methods `delete`, `get`, `getAll`, and `set`.
+
+```ts
+/* src/routes/route.ts */
+
+export const GET = ({ cookies }: RequestEvent) => {
+  cookies.set('xink', 'cookie value', { maxAge: 60 * 60 * 24 * 365 })
+  const cookie_value = cookies.get('xink')
+  const all_cookies = cookies.getAll()
+  cookies.delete('xink')
+}
+```
+
 ## Use
 
 In your project root, create an `index.ts` file that uses the xink plugin.
@@ -184,10 +199,17 @@ xink({
 > `RequestEvent.route` is largely used internally, and not currently useful to developers.
 
 ```ts
+type Cookies = {
+  delete(name: string, options?: CookieSerializeOptions): void;
+  get(name: string, options?: CookieParseOptions): string | undefined;
+  getAll(options?: CookieParseOptions): Array<{ name: string, value: string }>;
+  set(name: string, value: string, options?: CookieSerializeOptions): void;
+}
 type Params = { [key: string]: string };
 type Route = { store: Store; params: Params; } | null;
 
 type RequestEvent = {
+  cookies: Cookies;
   headers: Omit<Headers, 'toJSON' | 'count' | 'getAll'>;
   locals: { [key: string]: string },
   params: Params;
