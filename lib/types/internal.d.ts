@@ -1,3 +1,10 @@
+import type { CookieSerializeOptions } from "cookie";
+
+export interface Cookie {
+  name: string;
+  value: string;
+  options: CookieSerializeOptions;
+}
 export type DefaultConfig = {
   params: string;
   routes: string;

@@ -4,9 +4,10 @@ import type { Params, Route } from "./lib/types/internal.js"
 import type { CookieSerializeOptions } from "cookie"
 
 export type Cookies = {
-  get(name: string, options?: CookieSerializeOptions): string | undefined;
-  getAll(options?: CookieSerializeOptions): Array<{ name: string, value: string }>;
-  set(name: string, value: string, options: CookieSerializeOptions & { path?: string }): void;
+  delete(name: string, options?: CookieSerializeOptions): void;
+  get(name: string, options?: CookieParseOptions): string | undefined;
+  getAll(options?: CookieParseOptions): Array<{ name: string, value: string }>;
+  set(name: string, value: string, options?: CookieSerializeOptions): void;
 }
 export type Handle = (event: RequestEvent, resolve: ResolveEvent) => MaybePromise<Response>
 export type MaybePromise<T> = T | Promise<T>
