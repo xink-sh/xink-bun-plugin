@@ -18,7 +18,7 @@ const xink_plugin = {
 
     if (mode === 'build' && build.config) {
       console.log('build', build)
-      await createManifest(config, false, build.config.outdir)
+      await createManifest(config, false, build.config)
     } else if (mode === 'dev') {
       console.log('deving...')
       await createManifest(config, true)
