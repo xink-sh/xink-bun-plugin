@@ -31,7 +31,7 @@ There will eventually be a one-liner that helps do the below three steps for you
 
 1. A bun.build.ts file.
     ```ts
-    import { xink } from "@xink-sh/xink-bun-plugin"
+    import { xink } from '@xink-sh/xink-bun-plugin'
 
     await Bun.build({
       entrypoints: ['./index.ts'],
@@ -41,8 +41,8 @@ There will eventually be a one-liner that helps do the below three steps for you
     ```
 2. A bun.plugin.ts file.
     ```ts
-    import { plugin } from "bun"
-    import { xink } from "@xink-sh/xink-bun-plugin"
+    import { plugin } from 'bun'
+    import { xink } from '@xink-sh/xink-bun-plugin'
 
     await plugin(xink())
     ```
@@ -106,7 +106,7 @@ In your project root, create an `index.ts` file that uses the xink plugin.
 
 ```ts
 /* index.ts */
-import { Xink } from "@xink-sh/xink-bun-plugin"
+import { Xink } from '@xink-sh/xink-bun-plugin'
 
 const api = new Xink()
 
@@ -147,7 +147,7 @@ Xink provides the following built-in matchers, but they can be overridden by cre
 ### html
 Returns an html response. It sends a `Content-Length` header and a `Content-Type` header of `text/html`.
 ```ts
-import { html } from "@xink-sh/xink-bun-plugin"
+import { html } from '@xink-sh/xink-bun-plugin'
 
 export const GET = (event) => { 
   return html(`<div>You chose ${event.params.fruits}</div>`)
@@ -157,7 +157,7 @@ export const GET = (event) => {
 ### text
 Returns a text response. By default, it sends a `Content-Length` header and a `Content-Type` header of `text/plain`.
 ```ts
-import { text } from '@xink-sh/xink'
+import { text } from '@xink-sh/xink-bun-plugin'
 
 export const GET = () => {
   return text(`Hello World!`)
@@ -167,10 +167,20 @@ export const GET = () => {
 ### json
 Returns a json response. By default, it sends a `Content-Length` header and a `Content-Type` header of `application/json`.
 ```ts
-import { json } from '@xink-sh/xink'
+import { json } from '@xink-sh/xink-bun-plugin'
 
 export const GET = () => {
   return json({ hello: world })
+}
+```
+
+### redirect
+Returns a redirect response.
+```ts
+import { redirect } from '@xink-sh/xink-bun-plugin'
+
+export const GET = () => {
+  return redirect(status: number, location: string)
 }
 ```
 
@@ -218,6 +228,9 @@ type RequestEvent = {
   url: Omit<URL, 'createObjectURL' | 'revokeObjectURL' | 'canParse'>;
 }
 ```
+
+## Attributions
+Xink stands on the shoulders of giants. A special shoutout and tip of the hat goes to [Medley router](https://github.com/medleyjs/router) and [SvelteKit](https://github.com/sveltejs/kit). It wasn't feasible to use their libraries within Xink. Therefore, I've used their code, exact or tweaked, in various places, and given short attributions.
 
 ## Origins
 Pronounced "zinc", the name is based on the Georgian word [khinkali](https://en.wikipedia.org/wiki/Khinkali); which is a type of dumpling in the country of Georgia. The transcription is /ˈxink'ali/. To be clear: khinkali's beginning proununciation is dissimilar from "zinc".
