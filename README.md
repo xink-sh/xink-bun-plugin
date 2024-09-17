@@ -23,6 +23,11 @@ Largely based on code from the [Medley](https://github.com/medleyjs/router) URL 
 
 > The [[optional]] route feature is planned. We may consider allowing [...rest] to be in the middle of a route.
 
+## Additional Features
+
+- CSRF protection.
+- etag helper: returns 304 with no body, instead of 200 with body, if request etag equals response etag.
+
 ## Setup
 
 I still need to experiment with just using bun as a dev dependency - if that's even possible for this use-case. For now, I've globally installed bun.
