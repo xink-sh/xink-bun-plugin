@@ -25,7 +25,7 @@ Largely based on code from the [Medley](https://github.com/medleyjs/router) URL 
 
 ## Additional Features
 
-- CSRF protection.
+- CSRF protection: checks content type and origin ([ref](https://cheatsheetseries.owasp.org/cheatsheets/Cross-Site_Request_Forgery_Prevention_Cheat_Sheet.html#disallowing-simple-content-types)).
 - etag helper: returns 304 with no body, instead of 200 with body, if request etag equals response etag.
 
 ## Setup
